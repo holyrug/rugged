@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rugged | Financial Infrastructure for the Internet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #635bff;
+            --primary-dark: #5851eb;
+            --text-dark: #0a2540;
+            --text-gray: #425466;
+            --bg-light: #f6f9fc;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.15s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-secondary {
+            color: var(--primary);
+        }
+
+        .btn-secondary:hover {
+            color: var(--primary-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 40px 120px;
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--text-dark) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            color: var(--text-gray);
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .hero-buttons .btn {
+            padding: 14px 24px;
+            font-size: 16px;
+        }
+
+        .btn-outline {
+            border: 1px solid #e6ebf1;
+            color: var(--text-dark);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Hero Graphic */
+        .hero-graphic {
+            background: linear-gradient(135deg, var(--bg-light) 0%, #e8f0fe 100%);
+            border-radius: 16px;
+            padding: 40px;
+            position: relative;
+            min-height: 400px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            padding: 24px;
+            position: absolute;
+        }
+
+        .card-1 {
+            top: 40px;
+            left: 40px;
+            width: 260px;
+        }
+
+        .card-2 {
+            bottom: 60px;
+            right: 40px;
+            width: 220px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .card-title {
+            font-size: 14px;
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        .card-amount {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .card-badge {
+            background: #d4f4dd;
+            color: #1a7f37;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .card-chart {
+            height: 60px;
+            background: linear-gradient(90deg, var(--primary) 0%, #a5b4fc 100%);
+            border-radius: 8px;
+            opacity: 0.2;
+        }
+
+        /* Features Section */
+        .features {
+            background: var(--bg-light);
+            padding: 100px 40px;
+        }
+
+        .features-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .features h2 {
+            font-size: 40px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+            letter-spacing: -1px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary) 0%, #a5b4fc 100%);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--text-gray);
+            font-size: 15px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 40px;
+            max-width: 1280px;
+            margin: 0 auto;
+            border-top: 1px solid #e6ebf1;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-graphic {
+                min-height: 300px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-content h1 {
+                font-size: 40px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">Rugged</a>
+        <div class="nav-links">
+            <a href="#">Products</a>
+            <a href="#">Developers</a>
+            <a href="#">Pricing</a>
+            <a href="#">Company</a>
+            <a href="#" class="btn btn-secondary">Sign in</a>
+            <a href="#" class="btn btn-primary">Start now →</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Financial infrastructure for the internet</h1>
+            <p>Millions of businesses of all sizes use Rugged's software and APIs to accept payments, send payouts, and manage their businesses online.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary">Start now →</a>
+                <a href="#" class="btn btn-outline">Contact sales</a>
+            </div>
+        </div>
+        <div class="hero-graphic">
+            <div class="card card-1">
+                <div class="card-header">
+                    <span class="card-title">Total revenue</span>
+                    <span class="card-badge">+12.5%</span>
+                </div>
+                <div class="card-amount">$142,384</div>
+                <div class="card-chart"></div>
+            </div>
+            <div class="card card-2">
+                <div class="card-header">
+                    <span class="card-title">Successful payments</span>
+                </div>
+                <div class="card-amount">99.8%</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="features-container">
+            <h2>A complete payments platform</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💳</div>
+                    <h3>Global payments</h3>
+                    <p>Accept payments from customers anywhere in the world with support for 135+ currencies.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure by default</h3>
+                    <p>PCI Level 1 certified with advanced fraud protection built into every transaction.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Instant payouts</h3>
+                    <p>Get your money faster with instant payouts to your bank account or debit card.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Real-time analytics</h3>
+                    <p>Understand your business with detailed reports and real-time dashboards.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3>Developer tools</h3>
+                    <p>Build integrations quickly with our well-documented APIs and SDKs.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Local methods</h3>
+                    <p>Support local payment methods like iDEAL, SEPA, and more to boost conversion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <span class="footer-logo">Rugged</span>
+            <div class="footer-links">
+                <a href="#">Products</a>
+                <a href="#">Developers</a>
+                <a href="#">Company</a>
+                <a href="#">Pricing</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
